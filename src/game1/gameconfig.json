@@ -1,0 +1,9 @@
+{
+  "boardsize": 9,
+  "cellWidth": 75,
+  "celloffset": 10,
+  "ballWidth": 30,
+  "initailballs": 3,
+  "queuesize": 3,
+  "arr": ["0xE59866", "0xF4D03F", "0x3498DB", "0x0074FF", "0xC0392B", "0x8E44AD"]
+}
