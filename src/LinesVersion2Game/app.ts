@@ -27,6 +27,9 @@ export class App extends Application {
     window.addEventListener("orientationchange", this.onResize);
     window.addEventListener("resize", this.onResize);
 
+    this._mainView = new MainView();
+    this.stage.addChild(this._mainView);
+
     this._startLoad();
     this.onResize();
   }
@@ -51,10 +54,8 @@ export class App extends Application {
 
     window.scroll(0, 0);
 
-    if (this._mainView) {
-      this._mainView.scale.set(this._viewScale);
-      this._mainView.rebuild();
-    }
+    this._mainView.scale.set(this._viewScale);
+    this._mainView.rebuild();
   };
 
   private _startLoad(): void {
@@ -64,9 +65,7 @@ export class App extends Application {
   }
 
   private _onLoadComplete(): void {
-    this._mainView = new MainView();
     this._mainView.build();
-    this.stage.addChild(this._mainView);
   }
 
   private _updateOrientation(): void {

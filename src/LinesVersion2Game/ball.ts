@@ -2,10 +2,14 @@ import { Graphics, utils } from "pixi.js";
 import gameconfig from "./gameconfig.json";
 
 export class Ball extends Graphics {
+  public color: number;
   public selected = false;
+  public row: number;
+  public column: number;
   public constructor() {
     super();
-    this.beginFill(this.getRndClr());
+    this.color = this.getRndClr();
+    this.beginFill(this.color);
     this.drawCircle(0, 0, gameconfig.ballWidth);
   }
 

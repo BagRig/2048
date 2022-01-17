@@ -6,11 +6,16 @@ import { Score } from "./score";
 import { store } from "./store";
 
 export class MainView extends Container {
+  private _builded: boolean;
   private _board: Board;
   private _queue: Queue;
   private _score: Score;
 
   public rebuild(): void {
+    if (!this._builded) {
+      return;
+    }
+
     this._repositionBoard();
     this._repositionQueue();
     this._repositionScore();
@@ -18,19 +23,20 @@ export class MainView extends Container {
     this._board.rebuild();
     this._queue.rebuild();
     this._score.rebuild();
-
-    console.log("rebuild");
   }
 
   public build(): void {
-    this._buildBoard();
     this._buildQueue();
+    this._buildBoard();
     this._buildScore();
+
+    this._builded = true;
     this.rebuild();
   }
 
   private _buildBoard(): void {
     this._board = new Board();
+    this._board.queue = this._queue;
     this.addChild(this._board);
   }
 

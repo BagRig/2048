@@ -29,4 +29,8 @@ export class Queue extends Container {
       this.addChild(this.theball);
     }
   }
+  public genNewQueue(): void {
+    this.removeChildren();
+    this.build();
+  }
 }
