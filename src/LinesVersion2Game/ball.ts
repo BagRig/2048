@@ -3,13 +3,14 @@ import gameconfig from "./gameconfig.json";
 
 export class Ball extends Graphics {
   public color: number;
-  public selected = false;
+  // public selected = false;
   public row: number;
   public column: number;
   public constructor() {
     super();
     this.color = this.getRndClr();
     this.beginFill(this.color);
+    this.lineStyle(5, 0x000000);
     this.drawCircle(0, 0, gameconfig.ballWidth);
   }
 
@@ -17,15 +18,15 @@ export class Ball extends Graphics {
     return utils.string2hex(gameconfig.arr[Math.floor(Math.random() * gameconfig.arr.length)]);
   }
 
-  public select(): void {
-    this.selected = true;
-  }
+  // public select(): void {
+  //   this.selected = true;
+  // }
 
-  public deselect(): void {
-    this.selected = false;
-  }
+  // public deselect(): void {
+  //   this.selected = false;
+  // }
 
-  public isSelected(): boolean {
-    return this.selected;
-  }
+  // public isSelected(): boolean {
+  //   return this.selected;
+  // }
 }

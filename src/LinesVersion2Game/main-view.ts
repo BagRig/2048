@@ -27,8 +27,8 @@ export class MainView extends Container {
 
   public build(): void {
     this._buildQueue();
-    this._buildBoard();
     this._buildScore();
+    this._buildBoard();
 
     this._builded = true;
     this.rebuild();
@@ -37,6 +37,7 @@ export class MainView extends Container {
   private _buildBoard(): void {
     this._board = new Board();
     this._board.queue = this._queue;
+    this._board.score = this._score;
     this.addChild(this._board);
   }
 
@@ -59,7 +60,7 @@ export class MainView extends Container {
   }
 
   private _repositionScore(): void {
-    this._centralize(this._score, { x: 0, y: this._board.height / 2 - 100 });
+    this._centralize(this._score, { x: 0, y: this._board.height / 2 + 100 });
   }
 
   private _centralize(target: Container, offset: { x: number; y: number }): void {

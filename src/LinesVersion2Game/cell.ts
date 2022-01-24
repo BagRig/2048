@@ -37,17 +37,17 @@ export class Cell extends Container {
   }
 
   public placeBall(ball: Ball): void {
-    console.warn("placed");
-
     this.cellsball = ball;
-    this.cellsball.row = this.row;
-    this.cellsball.column = this.column;
+    ball.row = this.row;
+    ball.column = this.column;
     this.addChild(ball);
   }
 
   public removeBall(): void {
-    this.cellsball.removeChild();
-    this.cellsball = null;
+    if (this.cellsball) {
+      this.cellsball.removeChild();
+      this.cellsball = null;
+    }
   }
 
   public isEmpty(): boolean {

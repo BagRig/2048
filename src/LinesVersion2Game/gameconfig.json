@@ -5,5 +5,6 @@
   "ballWidth": 30,
   "initailballs": 3,
   "queuesize": 3,
-  "arr": ["0xE59866", "0xF4D03F", "0x3498DB", "0x0074FF", "0xC0392B", "0x8E44AD"]
+  "combosize": 5,
+  "arr": ["0xb24040", "0x4fa436", "0xa847be", "0x4c61cf", "0x46accd", "0xb88a41"]
 }
