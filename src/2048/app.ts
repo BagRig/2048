@@ -54,7 +54,8 @@ export class App extends Application {
 
     window.scroll(0, 0);
 
-    this._mainView.setScale(this._viewScale);
+    this._mainView.scale.set(this._viewScale);
+    this._mainView.rebuild();
   };
 
   private _startLoad(): void {

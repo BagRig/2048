@@ -1,6 +1,6 @@
 import sampleSize from "lodash.samplesize";
 import PF from "pathfinding";
-import { Container } from "pixi.js";
+import { Container, Graphics, Rectangle } from "pixi.js";
 import { Ball } from "./ball";
 import { Cell } from "./cell";
 import gameconfig from "./gameconfig.json";
@@ -13,13 +13,33 @@ export class Board extends Container {
   public score: Score;
   public savedball: Ball;
   public cells: Cell[][];
+  private _gr: Graphics;
   public constructor() {
     super();
     this.build();
   }
 
+  public getBounds(): Rectangle {
+    const { boardsize, cellWidth, celloffset } = gameconfig;
+    const x = -cellWidth / 2;
+    const y = -cellWidth / 2;
+    const width = boardsize * cellWidth + (boardsize - 1) * celloffset;
+    const height = boardsize * cellWidth + (boardsize - 1) * celloffset;
+
+    return new Rectangle(x, y, width, height);
+  }
+
   public rebuild(): void {
-    //
+    if (this._gr) {
+      this._gr.clear();
+      this._gr = null;
+    }
+    const { x, y, width, height } = this.getBounds();
+    const gr = new Graphics();
+    gr.beginFill(0x1111aa, 0.5);
+    gr.drawRect(x, y, width, height);
+    gr.endFill();
+    this.addChild((this._gr = gr));
   }
 
   public build(): void {

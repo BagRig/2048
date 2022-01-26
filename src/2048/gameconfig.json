@@ -1,0 +1,6 @@
+{
+  "boardsize": 4,
+  "cellWidth": 75,
+  "celloffset": 10,
+  "initialText": 2
+}

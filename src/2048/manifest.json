@@ -1,0 +1,7 @@
+{
+  "size": {
+    "ratio": { "min": 0, "max": 1 },
+    "portrait": { "width": 750, "height": 1334 },
+    "landscape": { "width": 1334, "height": 750 }
+  }
+}
